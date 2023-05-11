@@ -2,6 +2,8 @@ FROM node:10.18.0
 LABEL version="1.3"
 LABEL description="Challenge Extension Service"
 RUN sed -i '/jessie-updates/d' /etc/apt/sources.list
+RUN sed -i 's/security.debian/archive.debian/' /etc/apt/sources.list
+RUN sed -i 's/deb.debian/archive.debian/' /etc/apt/sources.list
 
 RUN apt-get update && \
     apt-get upgrade -y
